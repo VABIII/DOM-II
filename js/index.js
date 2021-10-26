@@ -7,13 +7,11 @@ const lets_go = document.querySelectorAll(".content-section .text-content:nth-ch
 const adv_awaits = document.querySelectorAll(".content-section .text-content:nth-child(2) h2");
 const footer = document.querySelector("footer p")
 const img = document.querySelector(".content-destination img");
-console.log(img)
+
 
 img.addEventListener("dblclick", () => {
     img.style.transform = "scale(1.5)"
     setTimeout(() => {img.style.transform = "scale(1)"}, 5000);
-
-
 })
 
 intro.addEventListener("pointerenter", () => {
@@ -74,7 +72,14 @@ Array.from(navs).forEach(nav => {
     })
 })
 
+img.addEventListener("click", () => {
+    console.log("Clicked")
+})
 
+doc.addEventListener("click", (evt) => {
+    console.log('stopped');
+    evt.stopPropagation();
+})
 
 
 
