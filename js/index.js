@@ -1,9 +1,49 @@
 const header_nav = document.querySelector("header nav");
+const navs = document.querySelectorAll("a");
 const doc = document.querySelector("body");
 const header = document.querySelector("header");
 const intro = document.querySelector(".intro");
-const text = document.querySelectorAll(".content-section .text-content:nth-child(1)");
-console.log(text)
+const lets_go = document.querySelectorAll(".content-section .text-content:nth-child(1) h2");
+const adv_awaits = document.querySelectorAll(".content-section .text-content:nth-child(2) h2");
+const footer = document.querySelector("footer p")
+const img = document.querySelector(".content-destination img");
+console.log(img)
+
+img.addEventListener("dblclick", () => {
+    img.style.transform = "scale(1.5)"
+    setTimeout(() => {img.style.transform = "scale(1)"}, 5000);
+
+
+})
+
+intro.addEventListener("pointerenter", () => {
+    intro.style.color = "blue"
+})
+
+intro.addEventListener("pointerleave", () => {
+    intro.style.color = "white";
+    intro.style.transitionDuration = '4s';
+})
+
+intro.addEventListener("transitionstart", () => {
+    navs.forEach(nav => {
+        nav.style.color = "purple"
+    })
+})
+
+intro.addEventListener('transitionend', () => {
+    footer.style.color = "white"
+    footer.style.transitionDuration= "5s";
+    footer.style.backgroundColor= "grey";
+})
+
+
+
+lets_go[0].addEventListener("click", () => {
+    lets_go[0].textContent = adv_awaits[0].innerHTML
+
+})
+
 
 header_nav.addEventListener('mouseenter', () => {
     navs.forEach(nav => {
@@ -26,9 +66,6 @@ doc.addEventListener("wheel", () => {
 header.addEventListener('mouseover', () => {
     header.style.backgroundColor = "grey";
 })
-
-
-const navs = document.querySelectorAll("a");
 
 Array.from(navs).forEach(nav => {
     nav.addEventListener('click', evt => {
